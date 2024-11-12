@@ -1,0 +1,21 @@
+name: Sync from Bitbucket to GitHub
+
+on:
+  # Trigger this workflow when there’s a push to the main branch on GitHub
+  push:
+    branches:
+      - master
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitHub repo
+        uses: actions/checkout@v2
+
+      - name: Add Bitbucket Remote and Pull Changes
+        run: |
+          git remote add bitbucket https://bitbucket.rampgroup.com/scm/~krishna.badugu_rampgroup.com/test_repo.git
+          git fetch bitbucket master
+          git merge bitbucket/master --allow-unrelated-histories
+          git push origin master
