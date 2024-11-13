@@ -16,7 +16,8 @@ jobs:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.BITBUCKET_SSH_KEY1 }}
+          ssh-private-key: ${{ secrets.BITBUCKET_SSH_KEY2 }}
+          known_hosts: bitbucket.rampgroup.com
 
       - name: Add Bitbucket Remote and Pull Changes
         run: |
