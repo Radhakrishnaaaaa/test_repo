@@ -16,7 +16,7 @@ jobs:
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
-          ssh-private-key: ${{ secrets.BITBUCKET_SSH_KEY }}
+          ssh-private-key: ${{ secrets.BITBUCKET_SSH_KEY1 }}
 
       - name: Add Bitbucket Remote and Pull Changes
         run: |
