@@ -13,14 +13,12 @@ jobs:
       - name: Checkout GitHub repo
         uses: actions/checkout@v2
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.BITBUCKET_SSH_KEY1 }}
-
       - name: Add Bitbucket Remote and Pull Changes
+        env:
+          BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
+          BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
         run: |
-          git remote add bitbucket git@bitbucket.rampgroup.com:7999/~krishna.badugu_rampgroup.com/test_repo.git
+          git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.rampgroup.com/scm/~krishna.badugu_rampgroup.com/test_repo.git
           git fetch bitbucket master
           git merge bitbucket/master --allow-unrelated-histories
           git push origin master
