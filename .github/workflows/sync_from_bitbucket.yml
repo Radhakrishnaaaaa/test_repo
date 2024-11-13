@@ -18,7 +18,7 @@ jobs:
           BITBUCKET_USERNAME: ${{ secrets.BITBUCKET_USERNAME }}
           BITBUCKET_APP_PASSWORD: ${{ secrets.BITBUCKET_APP_PASSWORD }}
         run: |
-          git remote add bitbucket https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.rampgroup.com/scm/~krishna.badugu_rampgroup.com/test_repo.git
+          git remote add bitbucket 'https://$BITBUCKET_USERNAME:$BITBUCKET_APP_PASSWORD@bitbucket.rampgroup.com/scm/~krishna.badugu_rampgroup.com/test_repo.git'
           git fetch bitbucket master
           git merge bitbucket/master --allow-unrelated-histories
           git push origin master
