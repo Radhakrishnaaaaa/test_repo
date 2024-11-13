@@ -20,7 +20,7 @@ jobs:
 
       - name: Add Bitbucket Remote and Pull Changes
         run: |
-          git remote add bitbucket ssh://git@bitbucket.rampgroup.com:7999/~krishna.badugu_rampgroup.com/test_repo.git
+          git remote add bitbucket git@bitbucket.rampgroup.com:7999/~krishna.badugu_rampgroup.com/test_repo.git
           git fetch bitbucket master
           git merge bitbucket/master --allow-unrelated-histories
           git push origin master
